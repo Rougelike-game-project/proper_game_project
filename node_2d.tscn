@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://4pqund3nukl7"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://d2im0v0piayct" path="res://game_master.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://cslkd82ndjw7d" path="res://Enemies/Bob.gd" id="3_0hol4"]
+[ext_resource type="Resource" uid="uid://citbsbp3vd4bx" path="res://EnemyStats/BobStats.tres" id="4_q6r6c"]
+
+[node name="Node" type="Node" unique_id=1020676352]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=227548316]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Node2D" unique_id=826398534]
+
+[node name="Icon" type="Sprite2D" parent="Node2D" unique_id=1878708395]
+position = Vector2(85, 158)
+scale = Vector2(1.296875, 2.421875)
+texture = ExtResource("1_0e48y")
+script = ExtResource("2_0e48y")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1528986363]
+position = Vector2(75, 76)
+
+[node name="Icon2" type="Sprite2D" parent="Node2D" unique_id=321310502]
+position = Vector2(371, 69)
+texture = ExtResource("1_0e48y")
+script = ExtResource("3_0hol4")
+stats = ExtResource("4_q6r6c")
