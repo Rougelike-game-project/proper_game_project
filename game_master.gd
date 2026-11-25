@@ -1,5 +1,9 @@
 extends Node
 
+signal parry_start(start_time)
+signal dodge_start(start_time)
+
+var player: Player
 var enemies: Array = []															#list af all enemies attacking the player
 var enemies_stamina: Array = []													#list that stores enemies stamina for the purpouse of choosing the attacker
 
@@ -73,6 +77,13 @@ func reset_enemies():															#after the end of a turn all enemies that ar
 	for enemy in enemies:
 		await enemy.reset_state()
 
+func connect_to_enemies():
+	for enemy in enemies:
+		enemy.attack_signal.connect(_on_enemy_making_an_attack.bind())
+
+func _on_enemy_making_an_attack(time_to_hit, damage):
+	await get_tree().create_timer(int(time_to_hit/60)).timeout
+	player.compare_states(damage)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -88,25 +99,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	elapsed_time += delta
-	if attack_just_started:
-		action_performed = -1
-		frame = 0
-		attack_just_started = false
-		
-		
 	if Input.is_action_pressed("dodge") and action_performed== -1:
 		print("You try to DODGE")
-		if attack_in_progress:
-			if current_attack.check_dodge(frame) == -1:
-				print("FAIL")
-				action_performed = 0
-			elif current_attack.check_dodge(frame) == 0:
-				print("NORMAL DODGE")
-				action_performed = 1
-			else:
-				print("PERFECT DODGE")
-				action_performed = 2
 	
 	if Input.is_action_pressed("parry") and action_performed== -1:
 		print("You try to PARRY")
@@ -120,10 +114,6 @@ func _process(delta: float) -> void:
 			else:
 				print("PERFECT PARRY")
 				action_performed = 4
-		
-	if elapsed_time >= 1.0/60:
-		elapsed_time = 0
-		frame += 1
 
 
 func _unhandled_input(event: InputEvent) -> void:
