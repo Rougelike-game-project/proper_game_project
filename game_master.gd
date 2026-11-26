@@ -15,6 +15,9 @@ var current_attack: Attack														#tells game master what attack the enemy
 
 var action_performed = -1														#stores what you have done and prevents you from spamming parry/dodge
 
+var player_attacks: Array = [Slash.new(),Pierce.new(),Slam.new()]
+var player:Player
+
 func count_array(array):
 	var count = 0.0
 	for i in array:
@@ -51,7 +54,7 @@ func attack_player():															#based on enemy stamina levels determines wh
 		
 		if action_performed == -1:
 			print("FAIL")
-			action_performed = -2
+			action_performed = -1
 		
 		previous_attacker = attacker
 		
@@ -78,6 +81,7 @@ func reset_enemies():															#after the end of a turn all enemies that ar
 func _ready() -> void:
 	enemies.append(Bob.new())
 	enemies.append(Bob.new())
+	player = Player.new()
 	
 	for i in range(2):
 		await attack_player()
@@ -120,7 +124,18 @@ func _process(delta: float) -> void:
 			else:
 				print("PERFECT PARRY")
 				action_performed = 4
-		
+	if Input.is_action_pressed("attack1") and action_performed== -1:
+		# jak działa targeting?
+		print("You try to " +player_attacks[0].get_name()+" the enemy")
+		player.player_attack(player_attacks[0])
+	if Input.is_action_pressed("attack2") and action_performed== -1:
+		# jak działa targeting?
+		print("You try to " +player_attacks[1].get_name()+" the enemy")
+		player.player_attack(player_attacks[1])
+	if Input.is_action_pressed("attack3") and action_performed== -1:
+		# jak działa targeting?
+		print("You try to " +player_attacks[2].get_name()+" the enemy")
+		player.player_attack(player_attacks[2])
 	if elapsed_time >= 1.0/60:
 		elapsed_time = 0
 		frame += 1

@@ -50,3 +50,5 @@ func reset_chance() -> void: 																			#the reset for the chance
 func get_chance(): return chance
 func get_name(): return attack_name
 func get_length(): return length_of_attack
+func get_cost(): return base_cost
+func get_damage(): return damage

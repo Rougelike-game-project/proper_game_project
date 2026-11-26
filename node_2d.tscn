@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://d2im0v0piayct" path="res://game_master.gd" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://cslkd82ndjw7d" path="res://Enemies/Bob.gd" id="3_0hol4"]
-[ext_resource type="Resource" uid="uid://citbsbp3vd4bx" path="res://EnemyStats/BobStats.tres" id="4_q6r6c"]
+[ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://player.gd" id="3_0hol4"]
+[ext_resource type="Resource" uid="uid://f1pi6stnbm48" path="res://PlayerTest.tres" id="4_0hol4"]
 
 [node name="Node" type="Node" unique_id=1020676352]
 
@@ -24,4 +24,4 @@ position = Vector2(75, 76)
 position = Vector2(371, 69)
 texture = ExtResource("1_0e48y")
 script = ExtResource("3_0hol4")
-stats = ExtResource("4_q6r6c")
+stats = ExtResource("4_0hol4")

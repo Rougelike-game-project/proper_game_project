@@ -1,0 +1,5 @@
+res://node_2d.tscn
+res://game_master.gd
+res://player_stats.gd
+res://player.gd
+res://attack.gd
