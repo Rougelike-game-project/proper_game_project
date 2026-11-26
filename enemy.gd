@@ -1,6 +1,7 @@
 extends Object
 class_name Enemy
 
+signal attack_signal(frames_to_hit, damage)
 
 enum enemyStates {ATTACKING, DEFENDING}
 var enemyState: enemyStates
@@ -52,7 +53,7 @@ func calculate_points() -> Array:													#based on calculated cost and fact
 
 
 func make_attack(attack_type):														#this will come from the game master and will make the attacker attack
-	print( attack_type.get_name(), " | Remaining Stamina: ", current_stamina)
+	attack_signal.emit(attack_type.get_time_to_hit(), attack_type.get_damage())
 
 
 func _init() -> void:

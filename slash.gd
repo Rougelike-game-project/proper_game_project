@@ -14,8 +14,4 @@ func _init() -> void:
 	chance = base_chance
 	
 	length_of_attack = 30
-	length_of_hitting = 15
-	parry_timing = [0, 25]
-	perfect_parry_timing = [14, 15]
-	dodge_timing = [10, 20]
-	perfect_dodge_timing = [13, 17]
+	time_to_hit = 5
