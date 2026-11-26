@@ -1,25 +1,43 @@
-# Godot 4.2+ specific ignores
-~*.dll
+# Godot 4 .gitignore from ziva.sh/tools/godot-gitignore-generator
 
-# Godot 4+ specific ignores
+# Editor cache: imported assets, shader cache, editor state and export credentials.
+# Keep the .import and .uid files next to your assets: they hold import settings and IDs.
 .godot/
-.nomedia
 
-# Godot-specific ignores
-.import/
-export.cfg
-export_credentials.cfg
-*.tmp
-
-# Imported translations (automatically generated from CSV files)
+# Binary translations Godot generates from CSV files
 *.translation
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# Copies of GDExtension libraries the Windows editor makes for hot reload
+~*.dll
 
-# Export outputs
-*.exe
-# Uncomment if your project does not version PCK files as runtime dependencies.
-# *.pck
+# Android build template from Project > Install Android Build Template
+/android/
+
+# Exported builds
+/builds/
+
+# macOS Finder metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows Explorer thumbnails and folder settings
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux editor backups, file manager metadata and trash
+*~
+.directory
+.Trash-*
+.fuse_hidden*
+.nfs*
+
+# VS Code: keep shared settings, launch and task files; ignore the rest
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
