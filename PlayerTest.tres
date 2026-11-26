@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerSheet" format=3 uid="uid://f1pi6stnbm48"]
+
+[ext_resource type="Script" uid="uid://byum2o2devi5u" path="res://player_stats.gd" id="1_nrwng"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "PlayerTest"
+script = ExtResource("1_nrwng")
+original_health = 10.0
+original_stamina = 10.0
+metadata/_custom_type_script = "uid://byum2o2devi5u"
