@@ -1,9 +1,3 @@
 res://node_2d.tscn
 res://player.gd
-res://weapons_stats.gd
-res://enemy.gd
-res://attack.gd
-res://pierce.gd
-res://slam.gd
-res://slash.gd
-res://game_master.gd
+res://enemy_stats.gd
