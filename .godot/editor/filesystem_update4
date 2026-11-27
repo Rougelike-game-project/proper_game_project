@@ -1,2 +1,5 @@
+res://bob_3d.tscn
+res://enemy3d.gd
 res://node_2d.tscn
-res://enemy_stats.gd
+res://portal.gd
+res://Enemies/Bob.gd
