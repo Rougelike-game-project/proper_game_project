@@ -20,7 +20,6 @@ var current_attack: Attack														#tells game master what attack the enemy
 var action_performed = -1														#stores what you have done and prevents you from spamming parry/dodge
 
 var player_attacks: Array = [Slash.new(),Pierce.new(),Slam.new()]
-var player:Player
 
 func count_array(array):
 	var count = 0.0

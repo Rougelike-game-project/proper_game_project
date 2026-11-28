@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cq1kdcy2ofbo7"]
+
+[ext_resource type="Script" uid="uid://35ryi6mfef7u" path="res://enemy3d.gd" id="1_8ptfr"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_wow10"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ptfr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4js7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wow10")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bob3D" type="Node3D" unique_id=1941353234]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=234750365]
+script = ExtResource("1_8ptfr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1732328723]
+shape = SubResource("BoxShape3D_8ptfr")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1932408460]
+sprite_frames = SubResource("SpriteFrames_4js7j")
