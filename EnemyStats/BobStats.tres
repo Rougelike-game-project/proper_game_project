@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Stats" format=3 uid="uid://citbsbp3vd4bx"]
 
 [ext_resource type="Curve" uid="uid://bmmut5qbpjvws" path="res://curves/enemy_attack_gap.tres" id="1_ockye"]
-[ext_resource type="Script" path="res://enemy_stats.gd" id="2_ggtro"]
+[ext_resource type="Script" uid="uid://bqd1xrqwiek4j" path="res://enemy_stats.gd" id="2_ggtro"]
 
 [resource]
 resource_local_to_scene = true
@@ -11,3 +11,4 @@ original_stamina = 15.0
 original_delay = 1.0
 original_timings = 3
 gap_curve = ExtResource("1_ockye")
+metadata/_custom_type_script = "uid://bqd1xrqwiek4j"
