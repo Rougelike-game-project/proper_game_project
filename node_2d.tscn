@@ -2,15 +2,30 @@
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://d2im0v0piayct" path="res://game_master.gd" id="2_0e48y"]
-
-[ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://player.gd" id="3_epypp"]
 [ext_resource type="Script" uid="uid://dpue3jvb1jwsd" path="res://player.gd" id="3_0hol4"]
 [ext_resource type="Resource" uid="uid://f1pi6stnbm48" path="res://PlayerTest.tres" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://6igrh2a52r3h" path="res://portal.gd" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://erh848q62dq2" path="res://Sprites/PortalTest.png" id="5_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://cq1kdcy2ofbo7" path="res://bob_3d.tscn" id="6_d21ai"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fcjn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_q6r6c")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fcjn"]
+size = Vector3(3.1802368, 0.72509766, 0.2821045)
 
 [node name="Node" type="Node" unique_id=1020676352]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=227548316]
+visible = false
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Node2D" unique_id=826398534]
 
@@ -26,9 +41,34 @@ position = Vector2(75, 76)
 [node name="Icon2" type="Sprite2D" parent="Node2D" unique_id=321310502]
 position = Vector2(371, 69)
 texture = ExtResource("1_0e48y")
-
-script = ExtResource("3_epypp")
-dodge_ticks = 73.0
 script = ExtResource("3_0hol4")
+dodge_ticks = 73.0
 stats = ExtResource("4_0hol4")
 
+[node name="Node3D" type="Node3D" parent="." unique_id=699578]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=952958729]
+transform = Transform3D(0.549637, 0, 0.83540356, 0, 1, 0, -0.83540356, 0, 0.549637, 1.4390495, 0.56226856, 1.1287247)
+
+[node name="portal" type="Node3D" parent="Node3D" unique_id=1725311783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004768312, 0.38006377, -1.4998384)
+script = ExtResource("5_kdubu")
+enemy_scene = ExtResource("6_d21ai")
+
+[node name="Timer" type="Timer" parent="Node3D/portal" unique_id=1528272008]
+wait_time = 2.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D/portal" unique_id=703773175]
+pixel_size = 0.0006
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_1fcjn")
+
+[node name="EnemyArena" type="Node3D" parent="Node3D" unique_id=1424941093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3770381)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/EnemyArena" unique_id=1853948818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10922241, 0.13745117, 0.028503418)
+shape = SubResource("BoxShape3D_1fcjn")
+
+[connection signal="timeout" from="Node3D/portal/Timer" to="Node3D/portal" method="_on_timer_timeout"]
