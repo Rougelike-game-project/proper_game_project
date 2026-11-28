@@ -16,6 +16,7 @@ var current_stamina: float
 var current_delay: float
 var current_posture: float
 var current_timings: int
+var current_speed: float
 
 
 
@@ -62,6 +63,7 @@ func _init() -> void:
 	current_posture = stats.original_posture
 	current_delay = stats.original_delay
 	current_timings = stats.original_timings
+	current_speed = stats.original_speed
 	enemyState = enemyStates.ATTACKING
 
 func reset_state():																	#at the end of the turn stamina and attack chances will be reset
