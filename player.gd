@@ -58,3 +58,4 @@ func player_attack(attack):
 		current_stamina = current_stamina - attack.get_cost()
 		print("You deal" + str(attack.get_damage()) + "damage, your current stamina is:" + str(current_stamina))
 		return attack.get_damage()
+
